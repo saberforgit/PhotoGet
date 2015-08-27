@@ -1,0 +1,42 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=0">
+    <title>APICloud</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script type="text/javascript">
+
+		var uzmoduledemo = null;
+		apiready = function(){
+	    	uzmoduledemo = api.require('PhotoGet');
+	    }
+	    
+		function takePhotos(){
+			var param = {path:"myphoto"};
+	        uzmoduledemo.takePhoto(param,function(ret){
+ document.getElementById("activity_result").innerHTML = JSON.stringify(ret.picPath);
+	        });
+		}
+		
+		function delPhotos(){
+			var param = {delPath:"myphoto"};
+	        uzmoduledemo.delPhoto(param);
+		}
+		   
+	</script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="main"> 
+            <div  >
+            	<input type="button" onclick="takePhotos()" value="takePhoto" /><br><br>
+            	<input type="button" onclick="delPhotos()" value="delPhoto" /><br><br>            	
+            	<div id="activity_result" style="width:100%;word-wrap: break-word;word-break: normal;"></div>        	
+            </div>
+
+        </div>   
+    </div>
+</body>
+</html>

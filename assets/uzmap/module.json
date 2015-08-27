@@ -1,0 +1,12 @@
+{
+	modules:[
+		{
+		    name:'PhotoGet',
+		    class:'com.apicloud.moduleDemo.PhotoGet'
+		},
+		{
+		    name:'listener',
+		    class:'com.apicloud.eventdemo.EasDelegate'
+		}
+	]
+}
